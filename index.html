@@ -1,0 +1,137 @@
+```html
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Задание 2 - Работа с HTTP-запросами</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f6f8;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #222;
+        }
+
+        section {
+            background: white;
+            padding: 20px;
+            margin-bottom: 30px;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+        }
+
+        h2 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        p {
+            color: #555;
+        }
+
+        img {
+            width: 100%;
+            max-width: 1000px;
+            border: 1px solid #ccc;
+            margin-top: 15px;
+            border-radius: 6px;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <h1>Задание 2. Выполнение HTTP-обращений к веб-серверу</h1>
+
+    <section>
+        <h2>0. Размещение файлов в папке files через GitHub</h2>
+        <p>
+            Файлы (file.tar.gz, image.png и пр.) были добавлены в репозиторий GitHub,
+            после чего опубликованы на веб-сервере внутри каталога /BackendTask2/files.
+            Доступность этих файлов проверена через браузер с использованием учебного домена.
+        </p>
+        <img src="github.png" alt="Выгрузка файлов через GitHub">
+        <img src="clone.png" alt="Копирование файлов через GitHub">
+    </section>
+
+    <section>
+        <h2>1. Запрос главной страницы с помощью GET (протокол HTTP/1.0)</h2>
+        <p>
+            Был отправлен GET-запрос к основной странице сервера, используя версию протокола HTTP/1.0.
+        </p>
+        <img src="1_get_main.png" alt="GET главной страницы HTTP 1.0">
+    </section>
+
+    <section>
+        <h2>2. Загрузка внутренней страницы методом GET (протокол HTTP/1.1)</h2>
+        <p>
+            Выполнен GET-запрос к служебной странице сайта с применением HTTP/1.1
+            и обязательным заголовком Host.
+        </p>
+        <img src="2_get_inner.png" alt="GET внутренней страницы HTTP 1.1">
+    </section>
+
+    <section>
+        <h2>3. Узнаём размер file.tar.gz без его загрузки (метод HEAD)</h2>
+        <p>
+            Через метод HEAD были получены только заголовки ответа сервера,
+            где в поле Content-Length указан точный объём файла file.tar.gz.
+        </p>
+        <img src="3_file_size.png" alt="HEAD file.tar.gz Content-Length">
+    </section>
+
+    <section>
+        <h2>4. Установление медиатипа для /image.png</h2>
+        <p>
+            Для определения Content-Type ресурса image.png был направлен HEAD-запрос.
+        </p>
+        <img src="4_mime_type.png" alt="Content-Type image/png">
+    </section>
+
+    <section>
+        <h2>5. Передача комментария на сервер через /index.php (метод POST)</h2>
+        <p>
+            С помощью telnet выполнен POST-запрос, отправляющий данные формы (application/x-www-form-urlencoded)
+            на обработчик index.php.
+        </p>
+        <img src="5_post.png" alt="POST запрос к index.php">
+    </section>
+
+    <section>
+        <h2>6. Извлечение первых 100 байтов файла /file.tar.gz</h2>
+        <p>
+            Применён заголовок Range (bytes=0-99), чтобы получить начальные 100 байтов файла,
+            избегая полной загрузки.
+        </p>
+        <img src="6_range.png" alt="Range bytes 0-99">
+    </section>
+
+    <section>
+        <h2>7. Выяснение кодировки ресурса /index.php</h2>
+        <p>
+            Кодировка страницы определена через HEAD-запрос по параметру charset
+            в заголовке Content-Type.
+        </p>
+        <img src="7_charset.png" alt="Charset index.php">
+    </section>
+    <section>
+        
+    </section>
+
+</div>
+
+</body>
+</html>
+```
